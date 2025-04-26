@@ -17,7 +17,24 @@ class CustomerdalApplicationTests {
 		customer.setName("Rebel");
 		customer.setEmail("rebel@gmail.com");
 		repo.save(customer);
+	}
+	@Test
+        void testReadCustomer(){
+		Customer customer = repo.findById(2L).get();
+		System.out.println(customer);
+	}
+	@Test
+	void testUpdateCustomer(){
+		Customer customer = repo.findById(2L).get();
+		customer.setEmail("Billa@gmail.com");
+		repo.save(customer);
+	}
+	@Test
+	void testDeleteCustomer(){
+		Customer customer = repo.findById(3L).get();
+		repo.delete(customer);
+	}
+
 
 	}
 
-}
